@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Question{% endblock %}
+
+{% block content %}
+<!--{% if question_list %}-->
+<!--    <ul>-->
+<!--    {% for question in question_list %}-->
+<!--        <li><a href="/SurveyMaker/{{ question.id }}/">{{ question.display_text }}</a></li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+<!--{% else %}-->
+<!--    <p>No polls are available.</p>-->
+<!--{% endif %}-->
+    {{question.survey}}
+    </br></br>
+    {{question.display_text}}
+    </br>
+    {% for option in options %}
+            <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}">
+            <label for="option{{ forloop.counter }}">{{ option.option_text }}</label><br>
+    {% endfor %}
+
+    <a href="/Q/{{ question.id }}/">Next</a>
+
+{% endblock %}
+
